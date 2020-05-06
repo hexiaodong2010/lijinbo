@@ -1,0 +1,5 @@
+MysqlDsn = "root:root@tcp(127.0.0.1:3306)/lijinbo?charset=utf8mb4"
+runMode = "dev"
+[redis]
+auth="123"
+port=3306

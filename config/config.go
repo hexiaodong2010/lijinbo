@@ -1,6 +1,7 @@
 package config
 
 import (
+	"fmt"
 	"github.com/BurntSushi/toml"
 	"log"
 )
@@ -26,10 +27,9 @@ type conf struct {
 
 func  InitConfig(runEnv string) {
 	cfg := conf{}
-	_, err := toml.DecodeFile("config/config-dev.toml", &cfg)
+	_, err := toml.DecodeFile(fmt.Sprintf("config/config-%s.toml", runEnv), &cfg)
 	if err!=nil {
-		log.Println(err)
-		return
+		log.Fatal(err)
 	}
 	RunMode = runEnv
 	log.Println(cfg)

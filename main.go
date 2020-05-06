@@ -5,7 +5,7 @@ import (
 	"fmt"
 	"github.com/gin-gonic/gin"
 	"lijinbo/config"
-	"net/http"
+	"lijinbo/router"
 	"os"
 )
 
@@ -38,8 +38,6 @@ func main() {
 	}
 	config.InitConfig(runMode)
 	route := gin.Default()
-	route.GET("/", func(c *gin.Context) {
-		c.String(http.StatusOK, "welcome!")
-	})
+	router.Init(route)
 	_ = route.Run()
 }
